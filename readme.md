@@ -1,3 +1,26 @@
+Conan profiles:
+```text
+$ cat ~/.conan2/profiles/default 
+[settings]
+arch=x86_64
+build_type=Release
+compiler=gcc
+compiler.cppstd=20
+compiler.libcxx=libstdc++11
+compiler.version=12
+os=Linux
+
+$ cat ~/.conan2/profiles/debug
+[settings]
+arch=x86_64
+build_type=Debug
+compiler=gcc
+compiler.cppstd=20
+compiler.libcxx=libstdc++11
+compiler.version=12
+os=Linux
+```
+
 Commands:
 ```shell
 mkdir build
