@@ -1,23 +1,11 @@
-cmake_minimum_required(VERSION 3.26)
+cmake_minimum_required(VERSION 3.15)
+project(cxx_shell_example CXX)
 
-project(TestCelix)
-
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_EXTENSIONS OFF)
-
+# MODIFICATION: use Celix to build bundle container
 find_package(Celix)
 
-find_package(libzip)
-
 add_celix_container(TestCelixContainer CXX
-    BUNDLES
-        Celix::http_admin
+        BUNDLES
         Celix::ShellCxx
         Celix::shell_tui
-        Celix::shell_wui
-)
-
-target_link_libraries(TestCelixContainer
-    PRIVATE
-        libzip::zip
 )

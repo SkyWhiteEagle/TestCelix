@@ -1,15 +1,4 @@
-Commands:
-```shell
-mkdir build
-cd build
-conan install .. --build missing
-conan build ..
-cd Release/deploy/TestCelixContainer/
-source ../../generators/conanrun.sh
-./TestCelixContainer 
-```
-
-Error from running the container:
+Error from running the container: (looks the same, did not re-copy/paste)
 ```text
 [2023-09-19T18:50:41] [  error] [celix_framework] [celix_framework_utils_extractBundlePath:217] No such file or directory(0x2): "Could not extract bundle zip file `bundles/celix_ShellCxx.zip` to `.cache/bundle2/resources`";
  Cause: No such file or directory
@@ -26,7 +15,7 @@ HTTP Admin started at port 8080
 [2023-09-19T18:50:41] [   info] [celix_framework] Framework error event received -> registering framework.error condition service
 ```
 
-Profiles listed by Conan install:
+Profiles listed by Conan install: (no modification to profile, did not re-copy/paste)
 ```text
 ======== Input profiles ========
 Profile host:
@@ -48,4 +37,34 @@ compiler.cppstd=20
 compiler.libcxx=libstdc++11
 compiler.version=12
 os=Linux
+```
+
+## Versions
+```text
+lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 23.04
+Release:        23.04
+Codename:       lunar
+```
+
+```text
+$ conan --version
+Conan version 2.0.10
+```
+
+```text
+$ gcc --version
+gcc (Ubuntu 12.3.0-1ubuntu1~23.04) 12.3.0
+Copyright (C) 2022 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+```
+
+```text
+$ cmake --version
+cmake version 3.27.5
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
 ```
