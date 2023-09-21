@@ -1,5 +1,6 @@
-conan build . -pr:b default -pr:h default -b missing -of cmake-build-release
-cd cmake-build-release
-source conanrun.sh
-cd deploy/TestCelixContainer/
+mkdir build
+cd build
+conan build .. --build missing -s:h build_type=Release
+cd Release/deploy/TestCelixContainer/
+source ../../generators/conanrun.sh
 ./TestCelixContainer
