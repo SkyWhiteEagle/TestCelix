@@ -1,5 +1,5 @@
 from conan import ConanFile
-from conan.tools.cmake import CMakeToolchain, CMake, CMakeDeps
+from conan.tools.cmake import CMakeToolchain, CMake, CMakeDeps, cmake_layout
 
 
 class cxx_shell_exampleRecipe(ConanFile):
@@ -24,6 +24,9 @@ class cxx_shell_exampleRecipe(ConanFile):
 
     # MODIFICATION: setup environment for me
     generators = "VirtualRunEnv"
+
+    def layout(self):
+        cmake_layout(self)
 
     def config_options(self):
         if self.settings.os == "Windows":

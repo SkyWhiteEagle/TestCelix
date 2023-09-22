@@ -1,3 +1,20 @@
+Celix commit:
+```text
+3710082906a1847f0594729ccc247db7301aec13
+```
+
+Debug:
+```text
+libs/utils/src/celix_file_utils.c:224 => celix_utils_writeOrCreateString returns ".cache/bundle1/resources/libShellCxx.so.2"
+libs/utils/src/celix_file_utils.c:230 => the if is false, celix_utils_createDirectory is not called, no resources folder
+libs/utils/src/celix_file_utils.c:234 => resources folder missing, fopen errors out
+
+In bundle 2, ".cache/bundle2/resources/META-INF/" is the path returned by celix_utils_writeOrCreateString on the first iteration, which triggers the if and the folder creation. 
+
+Note that it is working correctly for bundle 2 (TUI I believe). 
+Also, manually creating the resources folder right before the fopen fixes the issue.
+```
+
 Error from running the container: (looks the same, did not re-copy/paste)
 ```text
 [2023-09-19T18:50:41] [  error] [celix_framework] [celix_framework_utils_extractBundlePath:217] No such file or directory(0x2): "Could not extract bundle zip file `bundles/celix_ShellCxx.zip` to `.cache/bundle2/resources`";
